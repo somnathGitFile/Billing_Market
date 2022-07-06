@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>My Profile</title>
+    {% endblock %}
+
+
+    {% block content %}
+    <table class="table table-bordered" id="customer-table">
+        {% for i in obj %}
+            <tr>
+                <th>Username  : {{i.username}}</th>
+                <th>Firstname : {{i.first_name}}</th>
+                <th>Lastname : {{i.last_name}}</th>
+                <th>Email : {{i.email}}</th>
+                <th>Phone Number : {{i.phone_no}}</th>
+                <th>Current Address : {{i.current_address}}</th>
+                <th>Permanent Address : {{i.permanent_address}}</th>
+                <th>City : {{i.city}}</th>
+                <center>
+                    <td><button class="btn btn-warning btn-sm"><a href="{url 'updateemp_url' i.id}">UPDATE</a></button></td>
+                </center>
+                
+                {% endfor %}
+            </tr>
+    </table>
+    {% endblock %}

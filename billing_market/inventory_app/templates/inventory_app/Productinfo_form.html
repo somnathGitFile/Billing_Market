@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+<title>EMPLOYEE FORM</title>
+{% endblock %}
+
+{% block content %}
+<center>
+    <h1>Product Info</h1>
+</center>
+<div class = "container jumbotron">
+    <form method="post">
+        {% csrf_token %}
+        
+        {{form|crispy}}
+       
+        <br><input type="submit" value="ADD PRODUCT INFO" class ="btn btn-success btn-lg">
+        <input type="reset" value="CLEAR PRODUCT" class ="btn btn-danger btn-lg"><br>
+    </form><br>
+</div>
+{% endblock %}

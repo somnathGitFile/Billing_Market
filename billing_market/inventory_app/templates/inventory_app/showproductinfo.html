@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+<title> SHOW PRODUCT INFO</title>
+{% endblock %}
+
+{% block content %}
+<table class="table table-light">
+
+  <h1 style="color:black;">Product Details</h1>
+    <thead class="thead-dark">
+        <tr>
+            <!-- <th scope="col">PRODUCT ID</th> -->
+            <th scope="col">PRODUCT CATAGORY</th>
+            <th scope="col">PRODUCT NAME</th>
+            <th scope="col">PRODUCT_hsn</th>
+            <th scope="col">MANUFACTURER</th>
+            <th scope="col">DATE OF MUNUFACTURING</th>
+            <th scope="col">PRODUCT DESCRIPTION</th>
+            <th scope="col">COUNTRY OF ORIGIN</th>
+            <th scope="col">PRODUCT PRICE WITHOUT GST</th>
+            <th scope="col">PRODUCT QUANTITY</th>
+            <th scope="col">GST</th>
+            <th scope="col">SUPPLIERS</th>
+            
+            <th>UPDATE</th>
+            <th>DELETE</th>
+
+            </tr>
+            </thead>
+            <tbody>
+                {% for i in obj %}
+                <tr>
+                    <td>{{i.product_id}}</td>
+                    <td>{{i.product_category}}</td>
+                    <td>{{i.product_name}}</td>
+                    <td>{{i.product_hsn}}</td>
+                    <td>{{i.manufacturer}}</td>
+                    <td>{{i.date_of_manufacturing}}</td>
+                    <td>{{i.product_description}}</td>
+                    <td>{{i.country_of_origin}}</td>
+                    <td>{{i.product_price_without_gst}}</td>
+                    <td>{{i.product_quantity}}</td>
+                    <td>{{i.gst}}</td>
+                    <td>{{i.suppliers}}</td>
+
+                    <td><button class="btn btn-warning btn-lg"><a href="{% url 'updatepro_url' i.product_id %}">update</a></button></td>
+                    <td><button class="btn btn-danger btn-lg"><a href="{% url 'deletepro_url' i.product_id %}">delete</a></button></td>
+
+                  
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+<!-- {# .... **Now the pagination section** .... #} -->
+
+
+
+<!-- <div class="pagination">
+    <span class="step-links">
+    {% if page_obj.has_previous %}
+    <a href="?page=1">&laquo; ----FIRST----</a>
+        <a href="?page={{ page_obj.previous_page_number }}">--PREVIOUS--</a>
+    {% endif %}
+
+    <span class="current">
+        --------Page  {{ page_obj.number }} of  {{ page_obj.paginator.num_pages }}---------
+    </span>
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">----NEXT----</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}">-----LAST---- &raquo;</a>
+    {% endif %}
+</span></cenetr>
+</div> -->
+
+{% endblock %}
+     

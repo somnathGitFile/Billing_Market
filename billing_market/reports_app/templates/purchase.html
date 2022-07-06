@@ -1,0 +1,34 @@
+{% extends 'base.html'%}
+{% load crispy_forms_tags %}
+
+
+{% block title%}
+    <title>PURCHASE DETAILS</title>
+    {% endblock %}
+
+
+    {% block content %}
+    <table class="table table-bordered text-center" id="customer-table">
+        <thead>
+            <tr>
+                <th>Daily Purchase Order</th>
+                <th>Daily Purchase Product Qty</th>
+                <th>Daily Purchase Total Price</th>
+                <th>Daily Purchase Total Supplier</th>
+                
+            </tr>
+        </thead>
+        <tbody class="two-col-form">
+            {% for i in data %}
+            <tr>
+                <td>{{i.daily_purchase_orders}}</td>
+            <td>{{i.daily_purchase_product_quantity}}</td>
+            <td>{{i.daily_purchase_product_total_price}}</td>
+            <td>{{i.daily_purchase_total_suppliers}}</td>
+               
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+      
+    {% endblock %}

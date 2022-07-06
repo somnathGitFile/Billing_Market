@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+<title>SUPPLIERS FORM</title>
+{% endblock %}
+
+{% block content %}
+<center>
+    <h1>Suppliers Form</h1>
+</center>
+<div class = "container jumbotron">
+    <form method="post">
+        {% csrf_token %}
+        {{form|crispy}}
+       
+        <input type="submit" value="ADD SUPPLIERS" class ="btn btn-success btn-lg">
+        <input type="reset" value="CLEAR SUPPLIERS" class ="btn btn-danger btn-lg">
+    </form>
+</div>
+{% endblock %}

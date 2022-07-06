@@ -1,0 +1,36 @@
+{% block title %}
+   <h1>DailyPurchaseReport</h1>
+
+{% endblock %}
+{% block content %}
+
+
+          <div>
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+    
+    
+                        <th scope="col"> daily_purchase_orders  </th>
+                        <th scope="col">  daily_purchase_product_quantity </th>
+                        <th scope="col"> daily_purchase_product_total_price </th>
+                        <th scope="col"> daily_purchase_total_suppliers</th>
+                    </tr>
+                </thead>      
+                        <tbody>
+                            {% for i in data %}
+                            <tr>
+                                <td>{{i.daily_purchase_orders }}</td>
+                                <td>{{i.daily_purchase_product_quantity}}</td>
+                                <td>{{i.daily_purchase_product_total_price}}</td>
+                                <td>{{i.daily_purchase_total_suppliers}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    
+                
+            </table>
+          </div>
+
+
+{% endblock %}

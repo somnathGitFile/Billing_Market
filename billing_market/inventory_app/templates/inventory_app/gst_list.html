@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Show gst</title>
+{% endblock %}
+
+
+{% block content %}
+<table class="table table-info">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Gst_id</th>
+        <th scope="col">Gst_No</th>
+        <th scope="col">Cgst</th>
+        <th scope="col">Sgst</th>
+        <th scope="col">Igst</th>
+
+        <th scope="col">Update</td>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for object in object_list %}
+      <tr>
+        <td>{{object.gst_id}}</td>
+        <td>{{object.gst_no}}</td>
+        <td>{{object.cgst}}</td>
+        <td>{{object.sgst}}</td>
+        <td>{{object.igst}}</td>
+        
+        <td><button class="btn btn-warning btn-sm"><a href="{% url 'gstupdate_url' object.gst_id %}">Update</a></button></td>
+        <td><button class="btn btn-danger btn-sm"><a href="{% url 'gstdelete_url' object.gst_id %}">Delete</a></button></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endblock %}

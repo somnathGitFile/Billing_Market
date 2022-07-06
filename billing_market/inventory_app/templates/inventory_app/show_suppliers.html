@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title> SHOW SUPPLIERS</title>
+{% endblock %}
+
+{% block content %}
+<table class="table table-light">
+
+  <h1 style="color:black;">Suppliers Details</h1>
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">SUPPLIERS ID</th>
+            <th scope="col">SUPPLIERS NAME</th>
+            <th scope="col">SUPPLIERS ADDRESS</th>
+            <th scope="col">SUPPLIERS CONTACT</th>
+            <th scope="col">SUPPLIERS EMAIL</th>
+            <th scope="col">SUPPLIERS COMPANY</th>
+            <th>UPDATE</th>
+            <th>DELETE</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for i in obj %}
+                <tr>
+                    <td>{{i.supplier_id}}</td>
+                    <td>{{i.supplier_name}}</td>
+                    <td>{{i.supplier_address}}</td>
+                    <td>{{i.supplier_contact}}</td>
+                    <td>{{i.supplier_email}}</td>
+                    <td>{{i.supplier_company}}</td>
+
+
+                    <td><button type="button" class="btn btn-warning"><a href="{% url 'updatesupplier_url' i.supplier_id %}">UPDATE</a></button></td>
+                    <td><button type="button" class="btn btn-danger"><a href="{% url 'deletesupplier_url' i.supplier_id %}">DELETE</a></button></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+<!-- {# .... **Now the pagination section** .... #} -->
+
+
+
+<!---<div class="pagination">
+    <span class="step-links">
+    {% if page_obj.has_previous %}
+    <a href="?page=1">&laquo; ----FIRST----</a>
+        <a href="?page={{ page_obj.previous_page_number }}">--PREVIOUS--</a>
+    {% endif %}
+
+    <span class="current">
+        --------Page  {{ page_obj.number }} of  {{ page_obj.paginator.num_pages }}---------
+    </span>
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">----NEXT----</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}">-----LAST---- &raquo;</a>
+    {% endif %}
+</span></cenetr>
+</div>
+
+{% endblock %}
+     

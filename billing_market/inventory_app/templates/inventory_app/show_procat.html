@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+  {% block content %}
+  <div class="container jumbotron " >
+      <table class="table table-light">
+  
+    <h1 style="color:black;"><center><b>PRODUCT CATEGORY</b></h1></center>
+      <thead class="thead-dark">
+          <tr>
+              <th scope="col">PRODUCT CATEGORY ID</th>
+              <th scope="col">PRODUCT CATEGORY NAME</th>
+              
+              <th>UPDATE</th>
+              <th>DELETE</th>
+              </tr>
+              </thead>
+              <tbody>
+                  {% for i in obj %}
+                  <tr>
+                      <td>{{i.product_category_id}}</td>
+                      <td>{{i.product_category_name}}</td>
+                      
+                    
+                      <td><button type="button" class="btn btn-warning"><a href="{% url 'procat_update_urls' i.product_category_id %}">UPDATE</a></button></td>
+                      <td><button type="button" class="btn btn-danger"><a href="{% url 'procat_delete_urls' i.product_category_id %}">DELETE</a></button></td>
+                      
+                  </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+          </div>
+        {% endblock %}
+  

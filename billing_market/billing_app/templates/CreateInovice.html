@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block title %}
+    <title>Create Invoice</title> 
+{% endblock %}
+
+{% block scripts %}
+        <script type="text/javascript">
+                function customer(){
+                        var txt1=document.getElementById("nameid").value;
+                        document.getElementById("cname").innerHTML="Customer Name: " +txt1;
+
+                        var txt2=document.getElementById("contactid").value;
+                        document.getElementById("ccontact").innerHTML="Customer Contact: " +txt2;
+
+                        var txt3=document.getElementById("emailid").value;
+                        document.getElementById("cmail").innerHTML="Customer Email: " +txt3;
+
+                        var txt4=document.getElementById("addressid").value;
+                        document.getElementById("caddress").innerHTML="Customer Address: " +txt4;
+
+                        var txt5=document.getElementById("inumberid").value;
+                        document.getElementById("invoicno").innerHTML="Invoice No: " +txt5;
+
+                        var txt6=document.getElementById("dateid").value;
+                        document.getElementById("invoicedate").innerHTML="Invoice Date: " +txt6;
+
+                        // var txt7=document.getElementById("productid").value;
+                        // document.getElementById("pid").innerHTML=txt7;
+
+                        // var txt8=document.getElementById("quantityid").value;
+                        // document.getElementById("pqty").innerHTML=txt8;
+                        // var txt9=document.getElementById("priceid").value;
+                        // document.getElementById("pprice").innerHTML=txt9;
+
+                        // var txt10=document.getElementById("totalpriceid").value;
+                        // document.getElementById("tprice").innerHTML=txt10;
+
+                }
+
+        </script>
+        {% endblock %}
+
+
+{% block content1 %}
+<div class="container jumbotron">
+    <div class="row">
+        <div class="col-sm-4">
+            <form action="" method="post">
+                {% csrf_token %}
+                {{form2|crispy}}
+
+                <input type="submit" value="Sumbit" class="btn btn-success">
+            </form>
+        </div>
+
+        <div class="col-sm-4">
+            <form action="" method="post">
+            {% csrf_token %}
+            {{form|crispy}}
+            <input type="submit" value="Sumbit" class="btn btn-success">
+            
+            </form>
+        </div>
+        <div class="col-sm-4">
+            <form action="" method="post">
+                {% csrf_token %}
+                {{form1|crispy}}
+                <br><br>
+                <input type="submit" value="Sumbit" class="btn btn-success">
+            </form>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+
+        
+            <h1>CJC Electronics</h1>
+                    <tr id="invoicno"></tr><br>
+                    <tr id="invoicedate"></tr><br>
+                    <tr id="cname"></tr><br>
+                    <tr id="ccontact"></tr><br>
+                    <tr id="cmail"></tr><br>
+                    <tr id="caddress"></tr>
+            
+    
+    <hr><hr>
+
+
+    </div>
+</div>
+{% endblock %}
+
+
+
